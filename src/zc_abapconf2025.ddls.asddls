@@ -5,12 +5,12 @@ define root view entity ZC_ABAPCONF2025
   provider contract transactional_query
   as projection on ZI_ABAPCONF2025
 {
-  key id,
-  description,
-  currencycode,
-  price,
-  vat,
-  pricevat,
-  locallastchangedat
+  key ID,
+  Description,
+  CurrencyCode,
+  Price,
+  Vat,
+  PriceVat,
+  LocalLastChangedAt
   
 }

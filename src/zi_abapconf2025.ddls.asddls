@@ -7,7 +7,7 @@ define root view entity ZI_ABAPCONF2025
   key id                    as ID,
       @EndUserText.label: 'Order description'
       description           as Description,
-      @EndUserText.label: 'Currency'
+      @UI.hidden: true
       currency_code         as CurrencyCode,
       @EndUserText.label: 'Price (Without VAT)'
       @Semantics.amount.currencyCode: 'CurrencyCode'

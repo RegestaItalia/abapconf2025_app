@@ -4,23 +4,25 @@ with draft;
 
 define behavior for ZI_ABAPCONF2025 alias Order
 persistent table zabapconf2025
-draft table ZABAPCONF2025_D
+draft table zabapconf2025_d
 etag master LocalLastChangedAt
 lock master total etag LastChangedAt
-authorization master( global )
+authorization master ( global )
 
 {
   field ( readonly )
-   ID,
-   CreatedAt,
-   CreatedBy,
-   LastChangedAt,
-   LocalLastChangedAt,
-   LocalLastChangedBy;
+  ID,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
 
   field ( numbering : managed )
-   ID;
-
+  ID;
+  field ( readonly ) CurrencyCode;
+  field ( readonly ) Vat;
+  field ( readonly ) PriceVat;
 
   create;
   update;
@@ -31,19 +33,23 @@ authorization master( global )
   draft action Discard;
   draft action Resume;
   draft determine action Prepare;
+  determination InitFields on modify { create; }
+  determination RecalculateVatPrice on modify { create; update; delete; field Price; }
+  side effects { field Price affects field PriceVat; }
 
-  mapping for ZABAPCONF2025
-  {
-    ID = ID;
-    Description = DESCRIPTION;
-    CurrencyCode = CURRENCY_CODE;
-    Price = PRICE;
-    Vat = VAT;
-    PriceVat = PRICE_VAT;
-    CreatedBy = CREATED_BY;
-    CreatedAt = CREATED_AT;
-    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
-    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
-    LastChangedAt = LAST_CHANGED_AT;
-  }
+
+  mapping for zabapconf2025
+    {
+      ID                 = ID;
+      Description        = DESCRIPTION;
+      CurrencyCode       = CURRENCY_CODE;
+      Price              = PRICE;
+      Vat                = VAT;
+      PriceVat           = PRICE_VAT;
+      CreatedBy          = CREATED_BY;
+      CreatedAt          = CREATED_AT;
+      LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+      LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+      LastChangedAt      = LAST_CHANGED_AT;
+    }
 }
