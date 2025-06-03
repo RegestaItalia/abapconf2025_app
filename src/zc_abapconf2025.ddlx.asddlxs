@@ -9,68 +9,56 @@ annotate view ZC_ABAPCONF2025 with
 {
   @UI.facet: [ {
     id: 'idIdentification', 
-    type: #IDENTIFICATION_REFERENCE, 
-    label: 'Order', 
+    type: #IDENTIFICATION_REFERENCE,
     position: 10 
   } ]
-  @UI.hidden: true
   id;
   
   @UI.lineItem: [ {
     position: 10 , 
-    importance: #MEDIUM, 
-    label: 'Description'
+    importance: #MEDIUM
   } ]
   @UI.identification: [ {
-    position: 10 , 
-    label: 'Description'
+    position: 10 
   } ]
   description;
   
   @UI.lineItem: [ {
     position: 20 , 
-    importance: #MEDIUM, 
-    label: 'CurrencyCode'
+    importance: #MEDIUM
   } ]
   @UI.identification: [ {
-    position: 20 , 
-    label: 'CurrencyCode'
+    position: 20
   } ]
-  currencyCode;
+  currencycode;
   
   @UI.lineItem: [ {
     position: 30 , 
-    importance: #MEDIUM, 
-    label: 'Price'
+    importance: #MEDIUM
   } ]
   @UI.identification: [ {
-    position: 30 , 
-    label: 'Price'
+    position: 30
   } ]
   price;
   
   @UI.lineItem: [ {
     position: 40 , 
-    importance: #MEDIUM, 
-    label: 'Vat'
+    importance: #MEDIUM
   } ]
   @UI.identification: [ {
-    position: 40 , 
-    label: 'Vat'
+    position: 40
   } ]
   vat;
   
   @UI.lineItem: [ {
     position: 50 , 
-    importance: #MEDIUM, 
-    label: 'PriceVat'
+    importance: #MEDIUM
   } ]
   @UI.identification: [ {
-    position: 50 , 
-    label: 'PriceVat'
+    position: 50
   } ]
-  priceVat;
+  pricevat;
   
   @UI.hidden: true
-  localLastChangedAt;
+  locallastchangedat;
 }
