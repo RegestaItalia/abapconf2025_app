@@ -25,7 +25,7 @@ CLASS lhc_order IMPLEMENTATION.
                       %is_draft    = key-%is_draft
                       %key         = key-%key
                       currencycode = 'EUR'
-                      vat          = 22 ) ).
+                      vat          = zcl_abapconf_2025_utils=>get_vat( 'IT' ) ) ).
   ENDMETHOD.
 
   METHOD recalculatevatprice.
@@ -36,7 +36,10 @@ CLASS lhc_order IMPLEMENTATION.
       RESULT DATA(orders).
 
     LOOP AT orders ASSIGNING FIELD-SYMBOL(<fs_order>).
-      DATA(pricevat) = COND f( WHEN <fs_order>-price GT 0 THEN <fs_order>-price * ( 1 + <fs_order>-vat / 100 ) ELSE 0 ).
+      DATA(pricevat) = zcl_abapconf_2025_utils=>calculate_vat_price(
+        iv_price = CONV #( <fs_order>-price )
+        iv_vat   = CONV #( <fs_order>-vat )
+      ).
       IF <fs_order>-pricevat <> pricevat.
         <fs_order>-pricevat = pricevat.
       ELSE.
