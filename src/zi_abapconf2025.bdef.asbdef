@@ -35,7 +35,7 @@ authorization master ( global )
   draft determine action Prepare;
   determination InitFields on modify { create; }
   determination RecalculateVatPrice on modify { create; update; delete; field Price; }
-  side effects { field Price affects field PriceVat; }
+//  side effects { field Price affects field PriceVat; }
 
 
   mapping for zabapconf2025

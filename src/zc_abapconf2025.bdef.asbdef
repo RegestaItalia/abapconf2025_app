@@ -1,7 +1,7 @@
 projection;
 strict ( 1 );
 use draft;
-use side effects;
+//use side effects;
 
 define behavior for ZC_ABAPCONF2025 alias Order
 use etag
