@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition forZC_ABAPCONF2025'
+define service ZUI_ABAPCONF2025 {
+  expose ZC_ABAPCONF2025;
+}
