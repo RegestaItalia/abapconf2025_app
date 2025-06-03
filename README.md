@@ -30,7 +30,7 @@ TRM will resolve and install this utility library automatically when deploying t
 
 ## 👥 Authors
 
-Developed by [Regesta](https://www.regestaitalia.it) for ABAPConf 2025.
+Maintained by [Regesta](https://www.regestaitalia.eu/) for ABAPConf 2025.
 
 ## 📝 License
 
